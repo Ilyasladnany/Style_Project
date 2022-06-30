@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <h2 style="margin-left:20px">{{ product.name }}
+    <span style="color:green">${{ product.price }}</span></span><span style="color:gray;font-size:18px;"> ( {{ product.stock }} en stock )</span>
+    </h2>
+<table>
+    <tr>
+        <td>
+        <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 250px;border-radius:10px;margin:20px;">
+    </td><td>
+            <p>{{ product.description }}</p>
+
+
+</td></tr>
+</table>
+{% if user.is_authenticated %}
+
+        <a style="margin-left:50px;padding-left:21px;padding-right:21px;"class="button button2" href="{% url 'add-to-cart' product.slug %}">
+            Ajouter dans le panier
+        </a>
+
+
+    {% endif %}
+<style>
+.button {
+  background-color: #bfc1c2;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  border-radius: 10px;
+
+
+}
+
+.button2:hover {
+   text-decoration: red;
+
+  box-shadow: 0 1px 3px 0 rgba(1,1,1,0.3),0 17px 50px 0 rgba(1,1,1,0.4);
+}
+</style>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="text-center mt-5">
+    <form method="POST" style="max-width:480px;margin:auto;">
+        {% csrf_token %}
+
+            <img class="mt-4 mb-4" src="img.png" height="72" alt="">
+        <hl class="h3 mb-3 font-weight-normal">Veulliez vous connecter</hl>
+            <label for="username" class="sr-only">Nom d'utilisateur</label>
+            <input id="username" type="text" name="username" class="form-control" placeholder="Nom d'utilisateur">
+
+            <label for="password" class="sr-only">Mot de passe</label>
+            <input id="password" type="password" name="password" class="form-control" placeholder="mot de passe">
+
+        <br>
+        <button type="submit" class="btn btn-lg btn-primary btn-block">Connexion</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h3 class="my-4 border-bottom pb-1" ><span class="text-muted">Resultat de recherche de </span>  {{ request.GET.q }}</h3>
+{% for product in products %}
+<table style=" margin:22px;border-collapse: separate;border-spacing: 0 20px;">
+    <tr >
+    <td ><a href="{{ product.get_absolute_url }}">
+    <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="width: 250px;height: 150px;border-radius: 10px;">
+    </a>
+    </td>
+    <td style="padding:12px;">
+    <h3 style="font-size:22px;">{{ product.name }} <br><br>Prix: <span style="color:green;">${{ product.price }}</span></h3>
+    </td>
+    </tr>
+    </table>
+{% endfor %}
+
+{% endblock %}

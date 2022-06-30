@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<table style=" margin:22px;border-collapse: separate;border-spacing: 0 20px;">
+{% for product in products %}
+
+<tr >
+    <td ><a href="{{ product.get_absolute_url }}">
+    <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="width: 250px;height: 150px;border-radius: 10px;">
+    </a>
+    </td>
+    <td style="padding:12px;">
+    <h3 style="font-size:22px;">{{ product.name }} <br><br>Prix: <span style="color:green;">${{ product.price }}</span></h3>
+    </td>
+    </tr>
+
+{% endfor %}
+</table>
+{% endblock %}

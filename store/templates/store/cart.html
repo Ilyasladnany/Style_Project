@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<center>
+<table style="border-collapse: separate;border-spacing: 0 100px;">
+{% for order in orders %}
+<tr >
+    <td ><img style="width:50px;height:50px;border-radius: 10px;" src="{{ order.product.thumbnail.url }}" alt="{{ order.product.name }}" style="max-width: 250px;"></td>
+
+    <td  style="padding-left:22px;padding-right:22px"><span>{{ order.product.name }}</span></td>
+    <td style="padding-left:22px;padding-right:22px"><span  style="color:green">${{ order.product.price }}</span></td>
+    <td style="padding-left:22px;padding-right:22px"><span>Unité: {{ order.quantity }} </span></td>
+</tr>
+{% endfor %}
+</table>
+<a class="button button2" href="{% url 'delete-cart' %}">Supprimer le panier</a>
+<style>
+.button {
+  background-color: #bfc1c2;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  border-radius: 10px;
+
+
+}
+
+.button2:hover {
+   text-decoration: red;
+
+  box-shadow: 0 1px 3px 0 rgba(1,1,1,0.3),0 17px 50px 0 rgba(1,1,1,0.4);
+}
+</style>
+    </center>
+{% endblock %}
